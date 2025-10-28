@@ -77,11 +77,9 @@ const LoginForm = (props) => {
 
 	const submitForm = (e) => {
 		e.preventDefault();
-		console.log(form);
 		const isValid = validate(form);
 		if (isValid) {
 			const encodedData = encode(form.email, form.password);
-			console.log(encodedData);
 			fetch(
 				`https://gongfetest.firebaseio.com/secrets/${encodedData}/.json`
 			)
@@ -89,7 +87,6 @@ const LoginForm = (props) => {
 					return res.json();
 				})
 				.then((data) => {
-					console.log(data);
 					props.onAuthenticated(true, data);
 					navigate("/hierarchy");
 				})
