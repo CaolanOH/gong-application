@@ -34,6 +34,16 @@ const NavBar = (props) => {
 				</button>
 			</>
 		);
+	} else {
+		loggedIn = (
+			<>
+				<p style={{ color: "white", fontSize: "12px" }}>
+					Note for myself: login works for this user:
+					"anthony.xiouping@xtreet.tvl", password: "mllv9n0x". Other
+					users dont seem to login. Not sure if my issue or db issue.
+				</p>
+			</>
+		);
 	}
 
 	return (

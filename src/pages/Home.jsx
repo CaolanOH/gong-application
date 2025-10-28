@@ -9,6 +9,7 @@ const Home = (props) => {
 	};
 	return (
 		<div style={appStyles}>
+			<br />
 			<LoginForm
 				onAuthenticated={props.onAuthenticated}
 				authenticated={props.authenticated}

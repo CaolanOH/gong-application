@@ -42,19 +42,14 @@ const LoginForm = (props) => {
 	};
 
 	let navigate = useNavigate();
-	const [form, setForm] = useState({
-		email: "anthony.xiouping@xtreet.tvl",
-		password: "mllv9n0x"
-	});
+	const [form, setForm] = useState({});
 	const [errors, setErrors] = useState({});
 
 	const handleForm = (e) => {
-		e.preventDefault();
 		setForm((prevState) => ({
 			...prevState,
 			[e.target.name]: e.target.value
 		}));
-		console.log(form);
 	};
 
 	const validate = () => {
@@ -80,7 +75,9 @@ const LoginForm = (props) => {
 		return isValid;
 	};
 
-	const submitForm = () => {
+	const submitForm = (e) => {
+		e.preventDefault();
+		console.log(form);
 		const isValid = validate(form);
 		if (isValid) {
 			const encodedData = encode(form.email, form.password);
@@ -136,6 +133,7 @@ const LoginForm = (props) => {
 			<h1 style={formTitle}>
 				<i>LOGIN</i>
 			</h1>
+
 			<div style={formGroup}>
 				{errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
 				<input
